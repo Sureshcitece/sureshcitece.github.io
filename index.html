@@ -45,7 +45,8 @@
 
 const customerPlatform = getPlatform();
 
-console.log("Detected customer platform:", customerPlatform);
+Genesys("command", "Database.set", { messaging: { customAttributes: { key: 'value' }}},
+function(data){ console.log("fulfilled")}, function(){ console.log("rejected") });
   
 </script>
 </head>
