@@ -14,6 +14,32 @@
     environment: 'prod',
     deploymentId: 'fee662c7-4750-472c-bfa5-8101d4a7596f'
   });
+  function getPlatform() {
+    const platform = navigator.userAgentData?.platform || navigator.platform || "";
+
+    if (/Win/i.test(platform)) {
+        return "Windows";
+    }
+    if (/Mac/i.test(platform)) {
+        return "macOS";
+    }
+    if (/Android/i.test(platform)) {
+        return "Android";
+    }
+    if (/iPhone|iPad|iPod/i.test(platform)) {
+        return "iOS";
+    }
+    return "Unknown";
+}
+
+const customerPlatform = getPlatform();
+Genesys("command", "Database.set", {
+  messaging: {
+    customAttributes: {
+      OperatingSystem: customerPlatform
+    }
+  }
+});
 </script>
 </head>
 
