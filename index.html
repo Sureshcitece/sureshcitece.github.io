@@ -15,35 +15,38 @@
     deploymentId: 'fee662c7-4750-472c-bfa5-8101d4a7596f',
     debug: true
   });
-</script>
-<script>
+
   function getPlatform() {
-    const platform = navigator.userAgentData?.platform || navigator.platform || "";
+    const platform =
+        navigator.userAgentData?.platform ||
+        navigator.platform ||
+        "";
+
+    console.log("Raw browser platform:", platform);
 
     if (/Win/i.test(platform)) {
         return "Windows";
     }
+
     if (/Mac/i.test(platform)) {
         return "macOS";
     }
+
     if (/Android/i.test(platform)) {
         return "Android";
     }
+
     if (/iPhone|iPad|iPod/i.test(platform)) {
         return "iOS";
     }
+
     return "Unknown";
 }
 
 const customerPlatform = getPlatform();
-  console.log(customerPlatform);
-Genesys("command", "Database.set", {
-  messaging: {
-    customAttributes: {
-      OperatingSystem: customerPlatform
-    }
-  }
-});
+
+console.log("Detected customer platform:", customerPlatform);
+  
 </script>
 </head>
 
