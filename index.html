@@ -12,7 +12,8 @@
     ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
   })(window, 'Genesys', 'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js', {
     environment: 'prod',
-    deploymentId: 'fee662c7-4750-472c-bfa5-8101d4a7596f'
+    deploymentId: 'fee662c7-4750-472c-bfa5-8101d4a7596f',
+    debug: true
   });
   function getPlatform() {
     const platform = navigator.userAgentData?.platform || navigator.platform || "";
