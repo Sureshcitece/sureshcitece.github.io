@@ -16,38 +16,14 @@
     debug: true
   });
 
-  function getPlatform() {
-    const platform =
-        navigator.userAgentData?.platform ||
-        navigator.platform ||
-        "";
-
-    console.log("Raw browser platform:", platform);
-
-    if (/Win/i.test(platform)) {
-        return "Windows";
-    }
-
-    if (/Mac/i.test(platform)) {
-        return "macOS";
-    }
-
-    if (/Android/i.test(platform)) {
-        return "Android";
-    }
-
-    if (/iPhone|iPad|iPod/i.test(platform)) {
-        return "iOS";
-    }
-
-    return "Unknown";
+function getPlatform() {
+  const p = navigator.userAgentData?.platform || navigator.platform || "";
+  return /Win/i.test(p) ? "Windows" :
+         /Mac/i.test(p) ? "macOS" : "Unknown";
 }
-
 const customerPlatform = getPlatform();
-console.log("Detcted platform:", customerPlatform);
-
-//Genesys("command", "Database.set", { messaging: { customAttributes: { OperatingSystem: customerPlatform }}},
-//function(data){ console.log("fulfilled")}, function(){ console.log("rejected") });
+Genesys("command", "Database.set", { messaging: { customAttributes: { OperatingSystem: customerPlatform }}},
+function(data){ console.log("UserOS_fulfilled")}, function(){ console.log("UserOS_rejected") });
   
 </script>
 </head>
