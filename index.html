@@ -22,8 +22,8 @@ function getPlatform() {
          /Mac/i.test(p) ? "macOS" : "Unknown";
 }
 const customerPlatform = getPlatform();
-Genesys("command", "Database.set", { messaging: { customAttributes: { OperatingSystem: customerPlatform }}},
-function(data){ console.log("UserOS_fulfilled")}, function(){ console.log("UserOS_rejected") });
+//Genesys("command", "Database.set", { messaging: { customAttributes: { OperatingSystem: customerPlatform }}},
+//function(data){ console.log("UserOS_fulfilled")}, function(){ console.log("UserOS_rejected") });
   
 </script>
 </head>
