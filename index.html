@@ -46,8 +46,8 @@
 const customerPlatform = getPlatform();
 console.log("Detcted platform:", customerPlatform);
 
-Genesys("command", "Database.set", { messaging: { customAttributes: { OperatingSystem: customerPlatform }}},
-function(data){ console.log("fulfilled")}, function(){ console.log("rejected") });
+//Genesys("command", "Database.set", { messaging: { customAttributes: { OperatingSystem: customerPlatform }}},
+//function(data){ console.log("fulfilled")}, function(){ console.log("rejected") });
   
 </script>
 </head>
